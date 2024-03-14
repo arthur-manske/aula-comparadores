@@ -1,0 +1,51 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	me, returns data about me
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa que recebe seus dados e os retorna.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest)) 
+	if (isNaN(ret))
+	{
+		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+const date = new Date()
+const curYear = Number(date.getFullYear())
+
+const name = ask.question("Digite seu nome: ")
+const bornYear = safeGetNum("Digite seu ano de nascimento: ")
+
+const age = curYear - bornYear
+
+if (age < 0)
+{
+	console.log(`Você não pode ter uma idade negativa.`)
+	process.exit(1)
+}
+
+console.log(``)
+
+console.log(`Seu nome é: ${name}.`)
+console.log(`Sua idade é: ${age}.`)
+console.log(`Você é de maior? ${age > 17}`)
+
+console.log(``)
+
+if (curYear < 2050) {
+	console.log(`Você terá ${age + (2050 - curYear)} anos em 2050.`)
+} else {
+	console.log(`Você teria ${age - (curYear - 2050)} anos em 2050.`)
+}
+

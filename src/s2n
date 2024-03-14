@@ -1,0 +1,22 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	s2n, perform a type change between string to number
+*/
+
+let ask = require(`readline-sync`)
+console.log("Bem-vindo! Este programa é um teste de conversão entre string e número.") 
+
+console.log(``)
+
+let firstS = ask.question("Digite um número: ")
+let secondS = ask.question("Digite um segundo número: ")
+
+let firstN =  Number(firstS)
+let secondN = Number(secondS)
+
+console.log(``)
+
+console.log(`"${firstS}" + "${secondS}" = "${firstS + secondS}"`)
+console.log(`${firstN} + ${secondN} = ${firstN + secondN}`)
+

@@ -1,0 +1,21 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	cats - catinate two strings
+*/
+
+let ask = require(`readline-sync`)
+
+console.log("Bem-vindo! Este programa é um concatenador entre duas strings especificadas pelo usuário.")
+
+console.log(``)
+
+let firstS = ask.question("Digite a primeira string: ")
+let secondS = ask.question("Digite a segunda string: ")
+
+let catted = firstS + secondS
+
+console.log(``)
+
+console.log(`O resultado da concatenação das strings é ${catted}.`)
+

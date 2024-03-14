@@ -1,0 +1,39 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	ncmp, compares two provided numbers
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa de comparações entre dois números!`)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+let firstNum =  safeGetNum("Digite o primeiro número: ")
+let secondNum = safeGetNum("Digite o segundo número: ")
+
+console.log(`${firstNum} é igual a ${secondNum}? ${firstNum === secondNum}`)
+console.log(`${firstNum} é diferente de ${secondNum}? ${firstNum !== secondNum}`)
+
+console.log(``)
+
+console.log(`${firstNum} é maior que ${secondNum}? ${firstNum > secondNum}`)
+console.log(`${firstNum} é menor que ${secondNum}? ${firstNum < secondNum}`)
+
+console.log(``)
+
+console.log(`${firstNum} é maior que ou igual a ${secondNum}? ${firstNum >= secondNum}`)
+console.log(`${firstNum} é maior que ou igual a ${secondNum}? ${firstNum <= secondNum}`)
+
+console.log(``)
+

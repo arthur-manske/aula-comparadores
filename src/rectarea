@@ -1,0 +1,32 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	rectarea, calculate a rect area
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa de cálculo de área da um retângulo!`)
+console.log(`Primeiro, digite a base do retângulo, depois sua altura.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+let rectBase =  safeGetNum("Digite a base do retângulo agora: ")
+let rectHeigth = safeGetNum("Digite a altura do retãngulo: ")
+let rectArea = rectBase * rectHeigth
+
+console.log(``)
+
+console.log(`O valor da área do retângulo especificado é de ${rectArea}.`)
+

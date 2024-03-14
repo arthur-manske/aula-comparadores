@@ -1,0 +1,36 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024
+	c2f convert celsius to fahrenheit
+*/
+
+let ask = require(`readline-sync`)
+console.log(`Bem-vindo! Este é um conversor de temperatura de celsius para fahrenheit.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		return safeGetNote(quest)
+	}
+
+	return ret
+}
+
+function celsiusToFahrenheit(celsius)
+{
+	return (celsius * (9 / 5) + 32)
+}
+
+let celsius = safeGetNum("Digite o número de graus celsius (sem suffixos): ")
+let fahrenheit = celsiusToFahrenheit(celsius)
+
+console.log(``)
+
+console.log(`O valor em fahrenheit da temperatura fornecida é de: ${fahrenheit}`)
+
+

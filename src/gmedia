@@ -1,0 +1,45 @@
+#!/usr/bin/node
+
+/* Arthur de S. Manske
+	gmedia, get your school grades media.
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo a um programa de cálculo de média!`)
+
+console.log(``)
+
+function safeGetNote(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret) || ret < 0 || ret > 10)
+	{
+		console.log("Número inválido fornecido. Tente novamente com um número válido")
+		return safeGetNote(quest)
+	}
+
+	return ret
+}
+
+function getMedia(...medias)
+{
+	let ret = 0
+	for (let i = 0; i < medias.length; ++i)
+	{
+		ret += medias[i]
+	}
+
+	ret /= medias.length
+	return ret
+}
+
+let firstTrimMedia = safeGetNote("Qual foi a sua nota do primeiro trimestre? ")
+let secondTrimMedia = safeGetNote("Qual foi a sua nota do segundo trimestre? ")
+let thirdTrimMedia = safeGetNote("Qual foi a sua nota do terceiro trimestre? ")
+
+let finalMedia = getMedia(firstTrimMedia, secondTrimMedia, thirdTrimMedia)
+
+console.log(``)
+
+console.log(`Sua média é de ${finalMedia} pontos.`)
+

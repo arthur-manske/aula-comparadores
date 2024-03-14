@@ -1,0 +1,32 @@
+#!/usr/bin/node
+
+/* Arthur de Souza Manske, 2024 
+	add2 - performs a addition between two numbers
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa de cálculo de soma simples!`)
+console.log(`Primeiro, digite um número, depois o número para somar a ele.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+let firstNum =  safeGetNum("Digite o primeiro número: ")
+let secondNum = safeGetNum("Digite o segundo número: ")
+let sum = firstNum + secondNum
+
+console.log(``)
+
+console.log(`O valor da soma entre os valores fornecidos é de ${sum}.`)
+
