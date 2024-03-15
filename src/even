@@ -1,0 +1,31 @@
+#!/usr/bin/node 
+
+/* Arthur de S. Manske
+	even, print if a number is even.
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é  um programa para verificação de se um número é par.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("O número fornecido é inválido. Digite um número válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+const evenNumber = safeGetNum("Digite um número: ")
+
+console.log(``)
+
+console.log(`O resto da divisão de um número dividido por 2 é de ${evenNumber % 2}.`) /* if is a even number returns 0, else returns 1 */
+console.log(`O número é par? ${(evenNumber % 2) == 0}`)
+
+

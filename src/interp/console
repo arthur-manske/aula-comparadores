@@ -1,0 +1,14 @@
+let primeiroNumero = "100" // to make this correct, remove the quotes.
+						   // change "100" to 100
+let segundoNumero = "43"   // same here
+						   // change "43" to 43
+// this error occurs due to type dismatch. It's shouldn't be a string when the sum is performed.
+
+// you could also use Number on the variables 
+const soma = primeiroNumero + segundoNumero
+// like that:
+// const soma = Number(primeiroNumero) + Number(segundoNumero)
+// or put them on variables to reuse later.
+
+console.log(soma)
+

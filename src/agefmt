@@ -1,0 +1,49 @@
+#!/usr/bin/node
+
+/* Arthur de S. Manske
+	agefmt, prints your age in different formats.
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa de cálculo de conversão de idade para diferentes medidas de tempo.`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("O número fornecido é inválido. Digite um número válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+let ageInYears = safeGetNum("Digite sua idade em anos: ")
+let date = new Date() 
+let year = Number(date.getFullYear())
+
+if (ageInYears > 120 || ageInYears < 0)
+{
+	console.log(`Você está mentindo.`)
+	process.exit(1)
+}
+
+console.log(``)
+
+let ageInMonths  = ageInYears   * 12
+let ageInDays    = (ageInYears  * 365) + (ageInYears / 4)
+let ageInHours   = ageInDays    * 24
+let ageInMinutes = ageInHours   * 60
+let ageInSeconds = ageInMinutes * 60
+
+console.log(`Sua idade em anos é ${ageInYears}`)
+console.log(`Sua idade em meses é ${ageInMonths}`)
+console.log(`Sua idade em dias é ${ageInDays}`)
+console.log(`Sua idade em horas é ${ageInHours}`)
+console.log(`Sua idade em minutos é ${ageInMinutes}`)
+console.log(`Sua idade em segundos é ${ageInSeconds}`)
+
+

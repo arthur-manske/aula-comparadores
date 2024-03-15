@@ -12,7 +12,7 @@ function safeGetNum(quest)
 	let ret = Number(ask.question(quest))
 	if (isNaN(ret))
 	{
-		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		console.log("O número fornecido é inválido. Digite um número válido.")
 		return safeGetNum(quest)
 	}
 

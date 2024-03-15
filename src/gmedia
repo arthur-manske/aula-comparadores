@@ -12,10 +12,10 @@ console.log(``)
 function safeGetNote(quest)
 {
 	let ret = Number(ask.question(quest))
-	if (isNaN(ret) || ret < 0 || ret > 10)
+	if (isNaN(ret) || ret < 0)
 	{
-		console.log("Número inválido fornecido. Tente novamente com um número válido")
-		return safeGetNote(quest)
+		console.log("O número fornecido é inválido. Digite um número válido.")
+		return safeGetNum(quest)
 	}
 
 	return ret

@@ -11,10 +11,10 @@ console.log(``)
 
 function safeGetNum(quest)
 {
-	let ret = Number(ask.question(quest)) 
+	let ret = Number(ask.question(quest))
 	if (isNaN(ret))
 	{
-		console.log("Número inválido fornecido. Digite um número decimal válido.")
+		console.log("O número fornecido é inválido. Digite um número válido.")
 		return safeGetNum(quest)
 	}
 
@@ -32,6 +32,10 @@ const age = curYear - bornYear
 if (age < 0)
 {
 	console.log(`Você não pode ter uma idade negativa.`)
+	process.exit(1)
+} else if (age > 120) 
+{
+	console.log(`Você está mentindo.`)
 	process.exit(1)
 }
 

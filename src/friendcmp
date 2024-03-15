@@ -1,0 +1,36 @@
+#!/usr/bin/node
+
+/* Arthur de S. Manske
+	friendcmp, compares your age with your friend age.
+*/
+
+let ask = require(`readline-sync`) 
+console.log(`Bem-vindo! Este é um programa que compara a sua idade com a de seu amigo(a).`)
+
+console.log(``)
+
+function safeGetNum(quest)
+{
+	let ret = Number(ask.question(quest))
+	if (isNaN(ret))
+	{
+		console.log("O número fornecido é inválido. Digite um número válido.")
+		return safeGetNum(quest)
+	}
+
+	return ret
+}
+
+let yourAge = safeGetNum("Digite sua idade em anos: "), friendAge = safeGetNum("Digite a idade em anos do seu melhor amigo(a): ")
+if (yourAge > 120 || friendAge > 120 || friendAge < 0 || yourAge < 0)
+{
+	console.log(`Você está mentindo.`)
+	process.exit(1)
+}
+
+console.log(``)
+
+console.log(`Você é mais velho que o seu amigo(a)? ${yourAge > friendAge}`)
+console.log(`A diferença de idades entre você e seu amigo(a) é de ${+(yourAge - friendAge)} anos.`)
+
+
